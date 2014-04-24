@@ -21,4 +21,5 @@ Contents:
    connect
    api_intro
    order
+   comms
 
