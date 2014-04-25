@@ -1,41 +1,28 @@
-Retrieve Orders
-***************
+Retrieve Order Info
+*******************
 
-+---------------+----------------------------------------------------+
-| Endpoint      | ``https://eventio.com/api/2013-01-01/orders/list`` |
-+---------------+----------------------------------------------------+
-| Method        | GET                                                |
-+---------------+----------------------------------------------------+
++---------------+--------------------------------------------------------+
+| Endpoint      | ``https://eventio.com/api/2013-01-01/orders/info/:id`` |
++---------------+--------------------------------------------------------+
+| Method        | GET                                                    |
++---------------+--------------------------------------------------------+
 
-This endpoint is used to retrieve all non-deleted orders from Eventio. Note
-that the result contains also tentative and unpaid orders until they are
-automatically or manually deleted.
+This endpoint is used to retrieve details of **one order**.
+
+To list all orders and their IDs, read :doc:`list`.
 
 Request Parameters
 ==================
 
-Parameters are given as **query string values**.
+The order is identified in the URL's ``:id`` placeholder. Replace it with
+the internal 24-digit hex ID of the order.
 
-+------------+----------------------------------------------------------------------+
-| ``after``  | List only orders created after the given time. Enter value in        |
-|            | `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>` format.           |
-|            | If value is not given, all orders are listed.                        |
-+------------+----------------------------------------------------------------------+
-| ``before`` | List only orders created before the given time. Enter value in       |
-|            | `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>` format.           |
-|            | If value is not given, all orders are listed until the current time. |
-+------------+----------------------------------------------------------------------+
-| ``offset`` | Skip given amount of results from the beginning. Useful when looping |
-|            | through multiple pages. (see limit)                                  |
-+------------+----------------------------------------------------------------------+
-| ``limit``  | Return only given amount of results. Defaults to 100 that is also    |
-|            | the maximum.                                                         |
-+------------+----------------------------------------------------------------------+
+There are no further parameters that can be provided to the endpoint.
 
 Response
 ========
 
-JSON array of order records or an empty array.
+JSON object of the order in question.
 
 +--------------+----------------------------------------------------------------------+
 | ``id``       | Internal Order ID (24-digit hex)                                     |
@@ -45,6 +32,13 @@ JSON array of order records or an empty array.
 +--------------+----------------------------------------------------------------------+
 | ``time``     | Timestamp of the order, in                                           |
 |              | `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>` format            |
++--------------+----------------------------------------------------------------------+
+| ``status``   | Status of the whole order. Possible values:                          |
+|              |                                                                      |
+|              | * ``draft`` = Order is in draft mode.                                |
+|              | * ``active`` = Order is currently active.                            |
+|              | * ``cancelled`` = Order is cancelled.                                |
+|              |                                                                      |
 +--------------+----------------------------------------------------------------------+
 | ``customer`` | Nested document of customer details. See below.                      |
 +--------------+----------------------------------------------------------------------+
@@ -114,8 +108,8 @@ Active items are listed as a JSON array in ``items`` field and follow the format
 Notes
 =====
 
-* If an order is cancelled, it will no more exist on the results. Use ``id`` to track
-  if certain order still exists.
+* Order can be fully deleted whichafter it does not exists (``404 Not Found`` is returned)
+  at all. Cancelled orders have status ``cancelled``.
 * The item status depends on the organizer's configuration how purchases are confirmed. The
   rule of a thumb is that when the item is ``confirmed`` it's paid and in case of ticket
   products, tickets are issued.

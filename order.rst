@@ -8,4 +8,5 @@ API Endpoints:
 
 .. toctree::
 
-   order_ops/retrieval
+   order_ops/list
+   order_ops/info
