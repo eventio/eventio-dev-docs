@@ -9,3 +9,4 @@ API Endpoints:
 .. toctree::
 
    comms/send_sms
+   comms/send_sms_email
