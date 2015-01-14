@@ -63,9 +63,9 @@ Example
 Widgets in Practice
 -------------------
 
-When a page including some widgets is loaded, the Javascript (loaded in the site
-snippet) in the site snippet reads all tags on the page that match
-``class="eventio_frame"``. A new ``<iframe>`` is loaded inside each tag with
+When a page including some widgets is loaded, the Javascript in the site snippet
+reads all tags on the page that match ``class="eventio_frame"``.
+A new ``<iframe>`` is loaded inside each tag with
 the contents provided in ``data-url`` attribute.
 
 CMS Plugins

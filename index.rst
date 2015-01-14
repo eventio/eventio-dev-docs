@@ -1,5 +1,5 @@
-Eventio.com Documentation for Developers
-****************************************
+Eventio's Documentation for Developers
+**************************************
 
 This documentation is intended for **developers**, **integrators**,
 **webmasters** and other technology oriented staff of organizers using
@@ -20,6 +20,7 @@ Contents:
    intro
    connect
    api_intro
+   event
    order
    comms
 

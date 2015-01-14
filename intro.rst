@@ -10,4 +10,4 @@ a programmatic access is provided to many features of Eventio. This will
 allow any developer to extend and customize their guests' experience before,
 during and after the event.
 
-To learn more about Eventio, visit the company website at http://www.eventio.fi/.
+To learn more about Eventio, visit the company website at http://www.eventio.com/.
