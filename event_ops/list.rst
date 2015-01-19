@@ -75,6 +75,13 @@ order, sorted by the start date.
 |                  | ``info``: Arbitrary information about closed sales.                   |
 |                  | ``buybox_popup_url``: URL of the sales screen, if available.          |
 +------------------+-----------------------------------------------------------------------+
+| ``description``  | Nested JSON object of description / additional information about the  |
+|                  | event.                                                                |
+|                  |                                                                       |
+|                  | ``short``: Short description (a sentence or two), text only.          |
+|                  | ``long``: Long description (multiple paragraphs), may contain html.   |
+|                  |                                                                       |
++------------------+-----------------------------------------------------------------------+
 
 Availability & Sales screen
 ===========================
