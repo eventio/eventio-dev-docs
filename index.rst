@@ -19,6 +19,7 @@ Contents:
 
    intro
    connect
+   connect_plugins
    api_intro
    event
    order

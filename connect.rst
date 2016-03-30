@@ -73,3 +73,5 @@ CMS Plugins
 
 There are existing plugins available for popular content management systems. The
 plugins take care of adding required snippets.
+
+ * :doc:`connect_plugins/wordpress`
